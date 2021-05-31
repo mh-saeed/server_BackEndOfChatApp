@@ -13,7 +13,7 @@ app.use(cors());
 
 corsOptions={
   cors: true,
-  origins:["http://mh-saeed-chat.netlify.app/"],
+  origins:["http://mh-saeed-chat.netlify.app"],
  }
  const io = socketio(server, corsOptions);
 
