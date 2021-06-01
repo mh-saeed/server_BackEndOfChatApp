@@ -9,14 +9,14 @@ const router = require("./router");
 
 const app = express();
 const server = http.createServer(app);
-app.use(cors());
 
 corsOptions={
   cors: true,
   origins:['https://mh-saeed-chat.netlify.app/']
- }
- const io = socketio(server, corsOptions);
+}
+const io = socketio(server, corsOptions);
 
+app.use(cors());
 app.use(router);
 
 io.on("connect", (socket) => {
