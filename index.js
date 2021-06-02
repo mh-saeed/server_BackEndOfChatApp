@@ -16,7 +16,6 @@ corsOptions={
   credentials: true
 }
 const io = socketio(server, corsOptions);
-// const io = socketio(server);
 
 app.use(cors());
 app.use(router);
