@@ -9,7 +9,9 @@ const addUser = ({ id, name, room }) => {
   );
 
   if (!name || !room) return { error: "Username and room are required." };
-  if (existingUser) return { error: "Username is taken." };
+  if (existingUser) return { 
+    error: `Username is taken. ${location.replace("https://mh-saeed-chat.netlify.app/")}`   
+  };
 
   const user = { id, name, room };
 
