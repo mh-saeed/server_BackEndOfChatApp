@@ -10,11 +10,12 @@ const router = require("./router");
 const app = express();
 const server = http.createServer(app);
 
-corsOptions={
+/* corsOptions={
   cors: true,
   origins:['https://mh-saeed-chat.netlify.app/']
 }
-const io = socketio(server, corsOptions);
+const io = socketio(server, corsOptions); */
+const io = socketio(server);
 
 app.use(cors());
 app.use(router);
