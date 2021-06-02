@@ -1,7 +1,7 @@
 const http = require("http");
 const express = require("express");
-const socketio = require("socket.io");
-const cors = require("cors");
+// const socketio = require("socket.io");
+// const cors = require("cors");
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
@@ -9,6 +9,12 @@ const router = require("./router");
 
 const app = express();
 const server = http.createServer(app);
+const socketio = require("socket.io")(server, {
+  cors: {
+    origin: "https://mh-saeed-chat.netlify.app/",
+    methods: ["GET", "POST"]
+  }
+});
 
 /* corsOptions={
   cors: true,
@@ -18,7 +24,7 @@ const server = http.createServer(app);
 const io = socketio(server, corsOptions); */
 const io = socketio(server);
 
-app.use(cors());
+//app.use(cors());
 app.use(router);
 
 io.on("connect", (socket) => {
