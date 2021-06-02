@@ -9,8 +9,13 @@ const addUser = ({ id, name, room }) => {
   );
 
   if (!name || !room) return { error: "Username and room are required." };
-  if (existingUser) return { 
-    error: `Username is taken. ${location.replace("https://mh-saeed-chat.netlify.app/")}`   
+  //if (existingUser) {return { error: "Username is taken." }};
+  function Redirect() {
+    window.location = "https://mh-saeed-chat.netlify.app/";
+ }
+
+  if (existingUser) {
+    return Redirect();
   };
 
   const user = { id, name, room };
