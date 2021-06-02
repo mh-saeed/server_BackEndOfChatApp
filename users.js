@@ -9,6 +9,7 @@ const addUser = ({ id, name, room }) => {
   );
 
   if (!name || !room) return { error: "Username and room are required." };
+  if (name==='admin') {return { error: "Invalid username" }};
   if (existingUser) {return { error: "Username is taken." }};
 
   const user = { id, name, room };
